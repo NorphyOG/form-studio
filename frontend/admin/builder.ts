@@ -2,6 +2,7 @@ import {pickMedia,pickCampaign,setMediaSelect} from './pickers.js';
 import {field,textarea,select,check,escape as e,toast,errorMessage} from './ui.js';
 import {helpButton} from './help.js';
 import {openCatalog,cloneBlock,saveAsPreset} from './catalog.js';
+import {assetUrl} from './asset-url.js';
 import type {Block,BlockItem,Catalog,Media,User} from './types.js';
 
 type Control=HTMLInputElement|HTMLTextAreaElement|HTMLSelectElement;
@@ -98,7 +99,7 @@ export class PageBuilder {
   this.root.querySelectorAll<Control>('input,textarea,select').forEach(input=>input.addEventListener('input',()=>{
    this.collect();clearTimeout(this.timer);this.timer=window.setTimeout(()=>this.remember(),650);this.onChange();
    const row=input.closest<HTMLElement>('[data-block-index]');if(row){const block=this.blocks[Number(row.dataset.blockIndex)];row.classList.toggle('is-disabled',!block.enabled);row.querySelector('summary small')!.textContent=block.title.replace(/\n/g,' ')||'Ohne Titel';const outline=this.root.querySelector<HTMLElement>(`[data-outline="${row.dataset.blockIndex}"]`);if(outline){outline.querySelector('small')!.textContent=block.title.replace(/\n/g,' ').slice(0,38)||'Ohne Titel';outline.classList.toggle('outline-disabled',!block.enabled);outline.querySelector('i')!.textContent=block.enabled?'':'○';}}
-   if(input.dataset.bfield==='art'){const img=input.closest('.asset-inspector')?.querySelector('img');if(img)img.src='/static/assets/'+input.value+'.svg';}
+   if(input.dataset.bfield==='art'){const img=input.closest('.asset-inspector')?.querySelector('img');if(img)img.src=assetUrl(input.value);}
   }));
   this.root.querySelectorAll<HTMLButtonElement>('[data-pick-media],[data-pick-item-media]').forEach(button=>button.addEventListener('click',()=>{
    const locator=button.dataset.pickItemMedia;const index=Number(locator?locator.split(':')[0]:button.dataset.pickMedia);

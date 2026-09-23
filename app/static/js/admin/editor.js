@@ -4,6 +4,7 @@ import { escape as e, field, textarea, select, check, modal, toast, errorMessage
 import { helpButton } from './help.js';
 import { getCatalog } from './catalog.js';
 import { PageBuilder } from './builder.js';
+import { assetUrl } from './asset-url.js';
 const designOptions = [
     ['studio', 'Studio', 'Klar · modular'], ['noir', 'Noir', 'Dunkel · kontrastreich'],
     ['editorial', 'Editorial', 'Typografisch · klassisch'], ['atelier', 'Atelier', 'Warm · weich'],
@@ -73,7 +74,7 @@ export async function openEditor(record, kind, user, refresh, initial) {
     dialog.querySelectorAll('[data-design-option]').forEach(button => button.addEventListener('click', () => { if (!canEdit || !designSelect)
         return; designSelect.value = button.dataset.designOption || 'studio'; syncDesign(); markDirty(); }));
     form.querySelector('[name=art]')?.addEventListener('change', event => { const image = form.querySelector('.asset-inspector img'); if (image)
-        image.src = '/static/assets/' + event.target.value + '.svg'; });
+        image.src = assetUrl(event.target.value); });
     dialog.querySelector('#pick-cover')?.addEventListener('click', () => { if (!canEdit)
         return; const input = form.querySelector('[name=image]'); if (input)
         void pickMedia(m => setMediaSelect(input, m)); });

@@ -4,6 +4,7 @@ import {escape as e,field,textarea,select,check,modal,toast,errorMessage,badge,k
 import {helpButton} from './help.js';
 import {getCatalog} from './catalog.js';
 import {PageBuilder} from './builder.js';
+import {assetUrl} from './asset-url.js';
 import type {ContentData,Kind,Media,RecordItem,Revision,User} from './types.js';
 
 const designOptions:[string,string,string][]=[
@@ -54,7 +55,7 @@ export async function openEditor(record:RecordItem|null,kind:Kind,user:User,refr
   const syncDesign=():void=>{dialog.querySelectorAll<HTMLButtonElement>('[data-design-option]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.designOption===designSelect?.value)));};
   designSelect?.addEventListener('change',()=>{syncDesign();markDirty();});
   dialog.querySelectorAll<HTMLButtonElement>('[data-design-option]').forEach(button=>button.addEventListener('click',()=>{if(!canEdit||!designSelect)return;designSelect.value=button.dataset.designOption||'studio';syncDesign();markDirty();}));
- form.querySelector<HTMLSelectElement>('[name=art]')?.addEventListener('change',event=>{const image=form.querySelector<HTMLImageElement>('.asset-inspector img');if(image)image.src='/static/assets/'+(event.target as HTMLSelectElement).value+'.svg';});
+ form.querySelector<HTMLSelectElement>('[name=art]')?.addEventListener('change',event=>{const image=form.querySelector<HTMLImageElement>('.asset-inspector img');if(image)image.src=assetUrl((event.target as HTMLSelectElement).value);});
  dialog.querySelector('#pick-cover')?.addEventListener('click',()=>{if(!canEdit)return;const input=form.querySelector<HTMLSelectElement>('[name=image]');if(input)void pickMedia(m=>setMediaSelect(input,m));});
  const val=(name:string):string=>form.querySelector<HTMLInputElement|HTMLTextAreaElement|HTMLSelectElement>(`[name="${name}"]`)?.value||'';
  const checked=(name:string):boolean=>form.querySelector<HTMLInputElement>(`[name="${name}"]`)?.checked||false;

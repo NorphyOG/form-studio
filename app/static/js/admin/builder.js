@@ -2,6 +2,7 @@ import { pickMedia, pickCampaign, setMediaSelect } from './pickers.js';
 import { field, textarea, select, check, escape as e, toast, errorMessage } from './ui.js';
 import { helpButton } from './help.js';
 import { openCatalog, cloneBlock, saveAsPreset } from './catalog.js';
+import { assetUrl } from './asset-url.js';
 export class PageBuilder {
     root;
     catalog;
@@ -167,7 +168,7 @@ export class PageBuilder {
             if (input.dataset.bfield === 'art') {
                 const img = input.closest('.asset-inspector')?.querySelector('img');
                 if (img)
-                    img.src = '/static/assets/' + input.value + '.svg';
+                    img.src = assetUrl(input.value);
             }
         }));
         this.root.querySelectorAll('[data-pick-media],[data-pick-item-media]').forEach(button => button.addEventListener('click', () => {
