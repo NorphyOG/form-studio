@@ -1,0 +1,52 @@
+/* Signature 02. Geometry-driven intro; animation never controls document layout. */
+.hero-tile{background:var(--card);color:var(--accent);border:1px solid var(--line)}
+.hero-tile .hero-heading,.hero-tile h2,.hero-bottom{animation:none}
+.hero-tile h2{font-size:clamp(40px,5.9vw,92px);letter-spacing:-.065em;line-height:.98;white-space:pre-line;font-weight:500}
+.hero-bottom p{color:var(--muted)}.hero-tile .round-link{border-color:var(--line);color:var(--accent)}.hero-tile .round-link:hover{background:var(--accent);color:white}.hero-orbit{border-color:var(--line);box-shadow:0 0 0 40px #2548ed04,0 0 0 80px #2548ed02}
+.signature-curtain{position:fixed;left:0;z-index:80;transform-origin:0 0;background:var(--accent);pointer-events:none}
+.signature-title{position:fixed;z-index:81;transform-origin:0 0;color:white;white-space:pre-line;pointer-events:none;font-family:Arial,Helvetica,sans-serif}
+.signature-skip{position:fixed;bottom:22px;right:24px;z-index:82;padding:12px 18px;background:var(--ink);color:var(--paper);border:1px solid var(--line);font:11px 'Courier New',monospace}
+.motion-controls{max-width:1680px;margin:0 auto;padding:0 var(--gutter) 20px;display:flex;flex-wrap:wrap;gap:22px}.motion-controls button{font:10px 'Courier New',monospace;background:none;border:0;border-bottom:1px solid var(--line);padding:8px 0;color:var(--muted);min-height:38px}.motion-controls button:disabled{cursor:default;opacity:.8}
+.service-card .art svg *{transform-box:fill-box;transform-origin:center}.service-card:hover .art{transform:none}
+.service-card:focus-visible .ink{fill:var(--paper)}.service-card:focus-visible .faint-line{stroke:#686a67}.service-card:focus-visible .paper{fill:#dedfd8}
+.service-card .card-plus{transition:transform .4s cubic-bezier(.22,1,.36,1)}.service-card:is(:hover,:focus-visible) .card-plus{transform:rotate(45deg)}
+.service-card .art rect,.service-card .art circle,.service-card .art path,.service-card .art g{transition:transform .7s cubic-bezier(.22,1,.36,1),fill .35s,stroke .35s}
+.service-card[data-art=brand]:is(:hover,:focus-visible) rect:nth-of-type(1){transform:translateX(-8px) scaleY(1.18)}
+.service-card[data-art=brand]:is(:hover,:focus-visible) rect:nth-of-type(2){transform:translateX(-2px) scaleY(.8)}
+.service-card[data-art=brand]:is(:hover,:focus-visible) rect:nth-of-type(3){transform:translateX(5px) scaleY(1.18)}
+.service-card[data-art=brand]:is(:hover,:focus-visible) rect:nth-of-type(4){transform:translateX(12px) scaleY(.8)}
+.service-card[data-art=brand]:is(:hover,:focus-visible) circle{transform:rotate(-18deg) scale(.86)}
+.service-card[data-art=visual]:is(:hover,:focus-visible) .fill{transform:translate(-25px,-7px) rotate(28deg)}
+.service-card[data-art=visual]:is(:hover,:focus-visible) .ink{transform:translate(13px,4px) rotate(-15deg)}
+.service-card[data-art=motion]:is(:hover,:focus-visible) .fill{transform:rotate(155deg)}
+.service-card[data-art=motion]:is(:hover,:focus-visible) .tint{transform:scale(.84)}
+.service-card[data-art=web]:is(:hover,:focus-visible) .moving-shape{transform:scale(1.32,1.62)}
+.service-card[data-art=web]:is(:hover,:focus-visible) .faint-line{transform:scale(.92)}
+.service-card[data-art=print]:is(:hover,:focus-visible) .moving-shape{transform:rotate(-12deg) translate(7px,-6px)}
+.service-card[data-art=print]:is(:hover,:focus-visible) .paper{transform:rotate(13deg) translate(-9px,3px)}
+.service-card[data-art=automation]:is(:hover,:focus-visible) .fill{transform:scale(1.45);fill:var(--tint)}
+.service-card[data-art=automation]:is(:hover,:focus-visible) .pale{transform:scale(1.8);fill:var(--accent)}
+.service-card[data-art=space]:is(:hover,:focus-visible) .moving-shape{transform:perspective(450px) rotateY(-25deg) translateY(-7px)}
+.service-card[data-art=space]:is(:hover,:focus-visible) .ink{transform:translate(20px,-9px) scale(.8)}
+.service-card[data-art=stack]:is(:hover,:focus-visible) .moving-shape{transform:translateY(15px)}
+.service-card[data-art=stack]:is(:hover,:focus-visible) .layer-back{transform:translateY(-15px)}
+.service-card[data-art=mesh]:is(:hover,:focus-visible) .mesh-line{transform:scaleY(1.3) translateY(-6px)}
+.service-card[data-art=spark]:is(:hover,:focus-visible) .moving-shape{transform:rotate(45deg)}
+.service-card[data-art=rings]:is(:hover,:focus-visible) .moving-shape{transform:rotate(85deg)}
+.service-card[data-art=landscape]:is(:hover,:focus-visible) .moving-shape{transform:translateY(10px)}
+.service-card.position-3:hover .card-description{display:none} /* Do not reflow the tile on hover. */
+.faq-list summary span{transition:transform .3s}.faq-list details[open] p{animation:answer-in .3s ease-out}
+@keyframes answer-in{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.main-nav>a:not(.nav-cta){position:relative}.main-nav>a:not(.nav-cta)::after{content:'';position:absolute;bottom:7px;left:0;right:0;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .3s}.main-nav>a:is(:hover,:focus-visible)::after{transform:scaleX(1)}
+@view-transition{navigation:auto}
+::view-transition-old(root){animation:route-out .16s ease both}::view-transition-new(root){animation:route-in .26s ease both}
+@keyframes route-out{to{opacity:0}}@keyframes route-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+body[data-motion=off] *,body[data-motion=off] *::before,body[data-motion=off] *::after,[data-animation=none] *,[data-animation=none] *::before,[data-animation=none] *::after{animation:none!important;transition:none!important}
+body[data-motion=off] .service-card .art *,[data-animation=none] .service-card .art *{transform:none!important}
+body[data-motion=off] .service-card:hover .art,body[data-motion=off] .project-card:hover .project-art,body[data-motion=off] .project-card:hover img{transform:none!important}
+@media(prefers-reduced-motion:reduce){@view-transition{navigation:none}::view-transition-old(root),::view-transition-new(root){animation:none}.service-card .art *{transform:none!important}.signature-curtain,.signature-title,.signature-skip{display:none!important}}
+@media print{.signature-curtain,.signature-title,.signature-skip,.motion-controls{display:none!important}}
+
+html:has(body[data-motion="off"]){scroll-behavior:auto}
+
+html:has(body[data-motion="off"])::view-transition-old(root),html:has(body[data-motion="off"])::view-transition-new(root){animation:none}

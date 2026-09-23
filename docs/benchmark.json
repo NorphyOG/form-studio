@@ -1,0 +1,36 @@
+{
+  "synthetic_articles": 2000,
+  "method": "Linux container, isolated TestClient, warm local reads, no network/TLS, no concurrent writers",
+  "routes": {
+    "/": {
+      "median_ms": 17.66,
+      "p95_ms": 20.87,
+      "html_bytes": 20591,
+      "runs": 30
+    },
+    "/news": {
+      "median_ms": 15.71,
+      "p95_ms": 18.34,
+      "html_bytes": 15974,
+      "runs": 30
+    },
+    "/news/benchmark-100": {
+      "median_ms": 3.63,
+      "p95_ms": 4.58,
+      "html_bytes": 8449,
+      "runs": 30
+    },
+    "/news?q=Synthetic": {
+      "median_ms": 25.9,
+      "p95_ms": 34.94,
+      "html_bytes": 15568,
+      "runs": 30
+    }
+  },
+  "parallel_read_check": {
+    "workers": 4,
+    "requests": 40,
+    "errors": 0,
+    "median_ms": 27.31
+  }
+}

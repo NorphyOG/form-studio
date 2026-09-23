@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title|default('Design & Digital') }} · {{ site.brand }}</title>
+<meta name="description" content="{{ description|default('') }}">
+{% if preview %}<meta name="robots" content="noindex,nofollow">{% endif %}
+<link rel="canonical" href="{{ origin }}{{ canonical|default('/') }}">
+<meta property="og:title" content="{{ title|default('Design & Digital') }} · {{ site.brand }}">
+<meta property="og:description" content="{{ description|default('') }}"><meta property="og:type" content="{{ og_type|default('website') }}">
+<link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/static/css/site.css?v=030"><link rel="stylesheet" href="/static/css/motion.css?v=030"><link rel="stylesheet" href="/static/css/modules.css?v=030">
+<link rel="stylesheet" href="/static/css/experience.css?v=030"><link rel="stylesheet" href="/static/css/designs.css?v=040"><link rel="alternate" type="application/rss+xml" title="Journal" href="/feed.xml">
+<script type="module" src="/static/js/site.js?v=030"></script>
+</head>
+<body data-analytics="{{ 'on' if site.analytics_enabled and not preview else 'off' }}" data-motion="{{ site.motion|default('signature') }}" data-intro="{{ site.intro|default('session') }}" data-design="{{ site.design|default('studio') }}" class="accent-{{ site.accent }}{% if preview %} is-preview{% endif %}">
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+{% if preview %}<div class="preview-banner">ENTWURFSVORSCHAU — noch nicht öffentlich. Verknüpfte Inhalte zeigen ihren veröffentlichten Stand.</div>{% endif %}
+<header class="site-header">
+<a class="wordmark" href="/" aria-label="{{ site.brand }} — Startseite"><svg class="mark" width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path d="M3 3h24v8H11v5h12v7H11v4H3Z" fill="currentColor"/></svg>{{ site.brand }}<span class="logo-dot"></span></a>
+<nav class="main-nav" id="main-nav" aria-label="Hauptnavigation">{% for link in navigation %}<a href="{{ link.href }}">{{ link.label }}</a>{% endfor %}<a class="nav-cta" href="/kontakt">Projekt anfragen <span aria-hidden="true">↗</span></a></nav>
+<button class="menu-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Menü öffnen">Menü <span aria-hidden="true">＋</span></button>
+</header>
+<div class="reading-progress" aria-hidden="true"></div><main id="main">{% block content %}{% endblock %}</main>
+<footer class="site-footer"><a class="wordmark" href="/">{{ site.brand }}</a><span class="footer-note">{{ site.location }}</span><div><a href="/p/impressum">Impressum</a><a href="/p/datenschutz">Datenschutz</a><a href="https://github.com/NorphyOG/form-studio" rel="noopener noreferrer" target="_blank">Quellcode ↗</a><a href="/admin" aria-label="Adminbereich öffnen">Studio CMS ↗</a></div></footer>
+{% include 'creator-credit.html' %}
+<div class="motion-controls"><button type="button" class="motion-toggle" aria-pressed="false" hidden>Bewegung reduzieren</button><button type="button" class="replay-intro" hidden>Intro erneut abspielen ↗</button></div><div class="demo-note">Gestaltungsvorlage · Marke und Projekte sind Platzhalter. Rechtstexte vor dem Livegang ergänzen.</div>
+{% if site.analytics_enabled and not preview %}<div class="privacy-panel" hidden role="region" aria-label="Optionale Nutzungsstatistik"><div><strong>Statistik nur mit deiner Zustimmung.</strong><p>Wir zählen Seitenaufrufe und Werbeinteraktionen lokal. Keine Drittanbieter, keine Profilbildung. Aktive Seitenfenster werden kurzzeitig im Arbeitsspeicher gezählt. <a href="/p/datenschutz">Datenschutzhinweise</a></p></div><div class="privacy-actions"><button type="button" data-consent="denied">Ohne Statistik</button><button type="button" data-consent="accepted">Statistik erlauben</button></div></div><button type="button" class="privacy-settings">Datenschutz-Auswahl</button>{% endif %}
+</body></html>

@@ -1,0 +1,2 @@
+{% from 'blocks/shared.html' import heading,picture,link %}
+<section class="section features-section" id="{{ block.id }}">{{ heading(block) }}<div class="module-grid">{% for item in block['items'] %}<article class="feature-tile"><div class="feature-art">{{ picture(item,media) }}</div><span class="micro">{{ '%02d'|format(loop.index) }} / FEATURE</span><h3>{{ item.title }}</h3><p>{{ item.text }}</p>{{ link(item) }}</article>{% endfor %}</div></section>

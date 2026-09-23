@@ -1,0 +1,13 @@
+{% from 'art.html' import art %}
+<section class="bento-section" id="{{ block.id }}" aria-label="Leistungen und Studio">
+<div class="section-topline"><span><span class="mini-cross">✳</span> {{ block.eyebrow or site.tagline }}</span><span>STRATEGIE / DESIGN / DEVELOPMENT</span></div>
+<div class="bento-grid{% if services|length < 7 %} compact-layout{% endif %}">
+<div class="bento-intro"><span class="micro">EIN STUDIO. VIELE PERSPEKTIVEN.</span><p>Jede Idee verdient<br> ihre eigene Form<span class="blue">.</span></p><span class="intro-arrow" aria-hidden="true">↘</span></div>
+<div class="hero-tile" data-signature-hero><span class="micro">{{ site.brand }}</span><{{ hero_heading|default("h1") }} class="hero-heading">{{ block.title }}</{{ hero_heading|default("h1") }}><div class="hero-bottom"><p>{{ block.text }}</p><a href="/kontakt" class="round-link" aria-label="Projekt anfragen">↗</a></div><span class="hero-orbit" aria-hidden="true"></span></div>
+{% for service in services %}
+<a class="service-card position-{{ loop.index }}" href="/leistungen/{{ service.slug }}" data-art="{{ service.art }}"><div class="card-top"><span class="micro">{{ '%02d'|format(loop.index) }} / EXPERTISE</span><span class="card-plus" aria-hidden="true">↗</span></div>
+{% if service.image and service.image in media %}<img class="service-photo" src="/media/{{ service.image }}" alt="{{ media[service.image].alt }}" width="{{ media[service.image].width }}" height="{{ media[service.image].height }}">{% else %}{{ art(service.art) }}{% endif %}
+<div class="card-bottom"><h2>{{ service.title }}</h2><span class="card-description">{{ service.description }}</span></div></a>
+{% endfor %}
+</div><div class="bento-caption"><a href="/leistungen">Alle Leistungen ↗</a><a href="{{ works_anchor|default('/kontakt') }}">{{ "Arbeiten entdecken" if works_anchor and works_anchor.startswith("#") else "Projekt besprechen" }} <span aria-hidden="true">↓</span></a></div>
+</section>

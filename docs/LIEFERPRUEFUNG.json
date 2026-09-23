@@ -1,0 +1,61 @@
+{
+  "version": "0.3.0",
+  "checked_at_utc": "2026-09-23T12:26:08.756489+00:00",
+  "os": "Linux",
+  "python": "3.13.5",
+  "source": "Files extracted from form-studio-v0.3.zip, temporary empty data directory, installed Python dependencies",
+  "checks": {
+    "extracted_launcher_check": true,
+    "actual_loopback_http_health": {
+      "status": "ok",
+      "version": "0.3.0"
+    },
+    "http_routes": {
+      "/": {
+        "status": 200,
+        "bytes": 20596
+      },
+      "/news": {
+        "status": 200,
+        "bytes": 7334
+      },
+      "/p/spielraum": {
+        "status": 200,
+        "bytes": 13128
+      },
+      "/leistungen": {
+        "status": 200,
+        "bytes": 8155
+      },
+      "/arbeiten": {
+        "status": 200,
+        "bytes": 5514
+      },
+      "/admin": {
+        "status": 200,
+        "bytes": 687
+      },
+      "/static/js/admin/main.js": {
+        "status": 200,
+        "bytes": 9613
+      },
+      "/static/js/preview-bridge.js": {
+        "status": 200,
+        "bytes": 4588
+      }
+    },
+    "http_security_headers": true,
+    "fresh_schema": 3,
+    "fresh_content_records": 19,
+    "backup_restore_and_relaunch": true
+  },
+  "not_tested": [
+    "Windows double-click",
+    "first-time pip bootstrap",
+    "HTTPS/reverse proxy",
+    "deployed browser navigation",
+    "Safari/Firefox",
+    "production load"
+  ],
+  "privacy": "Temporary data deleted. No setup code, credentials or user databases included."
+}

@@ -1,0 +1,5 @@
+{% from 'blocks/shared.html' import picture %}
+<aside class="sponsor-card" aria-label="Anzeige" {% if entry.id and not preview %}data-campaign="{{ entry.id }}"{% endif %}>
+<div class="sponsor-heading"><span class="sponsor-label">ANZEIGE</span><span class="micro">{{ entry.sponsor or 'PARTNER / INFORMATION' }}</span></div>
+<div class="sponsor-content"><div><h2>{{ entry.title }}</h2><p>{{ entry.body or entry.description }}</p><a class="sponsor-link" href="{{ entry.link_url }}" rel="sponsored noopener noreferrer"{% if entry.id and not preview %} data-ad-click="{{ entry.id }}"{% endif %}>{{ entry.link_label }} <span aria-hidden="true">↗</span></a></div><div class="sponsor-art">{{ picture(entry,media) }}</div></div>
+</aside>

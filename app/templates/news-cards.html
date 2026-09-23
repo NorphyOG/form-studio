@@ -1,0 +1,9 @@
+{% from 'blocks/shared.html' import picture %}
+<div class="news-grid">
+{% for item in news_items %}<article class="news-card">
+<a class="news-card-link" href="/news/{{ item.slug }}">
+<div class="news-cover">{{ picture(item,media) }}<span class="news-open" aria-hidden="true">↗</span></div>
+<div class="news-card-meta"><span>{{ item.category }}</span><time datetime="{{ item.published_on }}">{{ item.published_on }}</time></div>
+<h3>{{ item.title }}</h3><p>{{ item.description }}</p><span class="news-author">{{ item.author }} <span aria-hidden="true">—</span> Beitrag lesen</span>
+</a></article>{% endfor %}
+</div>

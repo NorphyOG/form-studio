@@ -1,0 +1,9 @@
+{% extends 'base.html' %}{% from 'blocks/shared.html' import picture %}
+{% block content %}
+<article class="article-detail">
+<header class="article-header section"><a class="back-link" href="/news">← Zum Journal</a><div class="article-byline"><span>{{ entry.category }}</span><time datetime="{{ entry.published_on }}">{{ entry.published_on }}</time><span>{{ reading_minutes }} Min. Haupttext</span></div><h1>{{ entry.title }}</h1><p class="article-deck">{{ entry.description }}</p><div class="article-author"><span class="author-mark" aria-hidden="true">{{ entry.author[:1] }}</span><span>{{ entry.author }}<small>Redaktion / Journal</small></span></div></header>
+<div class="article-cover section">{{ picture(entry,media) }}</div>
+{% if entry.body %}<div class="section article-prose prose">{{ entry.body }}</div>{% endif %}
+{% include 'module-list.html' %}
+<footer class="article-end section"><a href="/news">← Weitere Perspektiven</a><span class="micro">{{ site.brand }} / JOURNAL</span></footer>
+</article>{% endblock %}

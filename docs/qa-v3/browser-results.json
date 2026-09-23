@@ -1,0 +1,30 @@
+{
+  "passed": 23,
+  "checks": [
+    "Startseite: sieben Kacheln, drei echte Demo-Beiträge, kein Überlauf",
+    "Vier Hover-Kontrastwechsel mit perspektivischer Bewegung",
+    "Signature-Intro bleibt abspielbar und überspringbar",
+    "Themen-Tabs per Maus und Pfeiltaste, ARIA-Zustand aktualisiert",
+    "Bildvergleich aktualisiert sichtbare Teilung und zugänglichen Wert",
+    "Partnerfläche und fixer Erstellerhinweis sind öffentlich sichtbar",
+    "Wiederkehrende Bühne animiert beim erneuten Betreten des Sichtbereichs",
+    "Mobile Navigation und reduzierte Bewegung bei 390 px",
+    "Journal und modulare Beitragsdetailseite werden gerendert",
+    "Echtes Setup, Hilfedialog ohne Eingabeverlust, authentifizierter Admin",
+    "Live-Vorschau patcht ungespeicherte Eingaben ohne iframe-Neuladen oder Datenbankrevision",
+    "Ausführliche Fragezeichen-Hilfe erhält Eingaben; echte Mobilvorschau",
+    "Live-Vorschau pausiert und übernimmt beim Fortsetzen die Änderungen",
+    "20 Module durchsuchen, Themen einfügen, Undo und Redo",
+    "Vorschau-Auswahl, Testmodus mit echten Tabs und Animation erneut abspielen",
+    "Speichern erzeugt Entwurfsrevision und verändert nicht die öffentliche Startseite",
+    "Beitrag über UI anlegen, Mediathek öffnen, sicher als Entwurf speichern",
+    "Acht Vorlagen, fünf eindeutige Produktmodule und mobiler Editor ohne Überlauf",
+    "Durchsuchbares Handbuch mit ausführlicher Werbeplatz-Hilfe",
+    "Analyse zeigt deaktivierten Zustand und echte Nullwerte statt Beispieldaten",
+    "20 Module × drei Farbschemata × drei Bildschirmbreiten ohne horizontalen Seitenüberlauf",
+    "Gastbrowser: keine Zählung vor Zustimmung, ein Aufruf und eine Sichtung danach, Widerruf beendet aktive Messung",
+    "Keine JavaScript-Exceptions oder Testtransportfehler im gesamten geprüften Ablauf"
+  ],
+  "errors": [],
+  "transport": "TestClient + set_content + test-only opaque-origin postMessage adapter; NOT deployment E2E"
+}

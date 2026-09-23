@@ -1,0 +1,2 @@
+{% from 'blocks/shared.html' import picture,link %}
+<section class="section media-section" id="{{ block.id }}"><div class="media-visual">{{ picture(block,media) }}<span class="micro media-caption">{{ block.eyebrow }}</span></div><div class="media-copy"><span class="micro section-kicker">{{ block.eyebrow }}</span><h2>{{ block.title }}</h2><p class="prose">{{ block.text }}</p>{{ link(block) }}</div></section>

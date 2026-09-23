@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="journal-intro section"><div class="journal-eyebrow"><span class="micro">JOURNAL / PERSPEKTIVEN</span><a href="/feed.xml" class="micro">RSS ↗</a></div><h1>Gedanken,<br>die <em>weitergehen.</em></h1><div class="journal-bottom"><p>Neuigkeiten. Einblicke. Neue Blickwinkel.</p><span class="micro">{{ listing.total }} BEITRÄGE</span></div></section>
+<section class="section journal-list"><form class="journal-search" action="/news" method="get"><label>Beiträge durchsuchen<input type="search" name="q" value="{{ query }}" placeholder="Thema, Idee oder Schlagwort …" maxlength="80"></label><label>Kategorie<input name="category" value="{{ category }}" placeholder="Alle Kategorien" maxlength="50"></label><button class="button-primary">Suchen ↗</button></form>
+{% set news_items = listing['items'] %}{% include 'news-cards.html' %}
+{% if not news_items %}<div class="journal-empty"><span class="micro">RAUM FÜR NEUES</span><h2>{{ 'Kein passender Beitrag.' if query or category else 'Das nächste Kapitel beginnt hier.' }}</h2><p>{{ 'Versuche einen anderen Begriff oder entferne den Kategoriefilter.' if query or category else 'Neue veröffentlichte Beiträge erscheinen automatisch in diesem Journal.' }}</p></div>{% endif %}
+<nav class="archive-pagination" aria-label="Beitragsseiten">{% if previous %}<a href="{{ previous }}">← Zurück</a>{% endif %}<span>Seite {{ page_number }}</span>{% if next %}<a href="{{ next }}">Weitere Beiträge →</a>{% endif %}</nav></section>
+{% endblock %}

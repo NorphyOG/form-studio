@@ -1,0 +1,2 @@
+{% from 'blocks/shared.html' import heading,picture %}
+<section class="section gallery-section" id="{{ block.id }}">{{ heading(block) }}<div class="module-grid">{% for item in block['items'] %}<figure class="gallery-tile"><div class="gallery-visual">{{ picture(item,media) }}</div><figcaption><strong>{{ item.title }}</strong><p>{{ item.text }}</p></figcaption></figure>{% endfor %}</div></section>

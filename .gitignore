@@ -1,0 +1,10 @@
+.venv/
+.env
+data/
+backups/
+node_modules/
+__pycache__/
+.pytest_cache/
+*.pyc
+*.sqlite3*
+.setup-key

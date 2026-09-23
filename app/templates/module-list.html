@@ -1,0 +1,6 @@
+{% set heading = namespace(used=article_context|default(false)) %}
+{% for block in page.blocks %}{% if block.enabled and (block.type != 'advert' or campaigns_by_block.get(block.id) or preview) %}
+{% set hero_heading = "h2" if heading.used else "h1" %}{% if block.type == "bento" %}{% set heading.used = true %}{% endif %}
+<div class="module-shell theme-{{ block.theme|default('paper') }} spacing-{{ block.spacing|default('normal') }} width-{{ block.width|default('wide') }} align-{{ block.align|default('left') }} columns-{{ block.columns|default(3) }}" data-block-id="{{ block.id }}" data-animation="{{ block.animation|default('auto') }}" data-module="{{ block.type }}">
+{% include 'blocks/' ~ block.type ~ '.html' %}
+</div>{% endif %}{% endfor %}

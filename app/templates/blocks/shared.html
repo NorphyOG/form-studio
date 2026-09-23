@@ -1,0 +1,8 @@
+{% macro heading(block) %}
+<div class="section-heading"><div>{% if block.eyebrow %}<span class="micro section-kicker">{{ block.eyebrow }}</span>{% endif %}{% if block.title %}<h2>{{ block.title }}</h2>{% endif %}</div>{% if block.text %}<p>{{ block.text }}</p>{% endif %}</div>
+{% endmacro %}
+{% macro picture(item, media) %}
+{% from 'art.html' import art %}
+{% if item.image and item.image in media %}<img src="/media/{{ item.image }}" alt="{{ media[item.image].alt }}" width="{{ media[item.image].width }}" height="{{ media[item.image].height }}" loading="lazy" decoding="async">{% else %}{{ art(item.art|default('space')) }}{% endif %}
+{% endmacro %}
+{% macro link(item) %}{% if item.link_url %}<a class="module-link" href="{{ item.link_url }}"{% if item.link_url.startswith('https://') %} rel="noopener noreferrer"{% endif %}>{{ item.link_label or 'Mehr erfahren' }} <span aria-hidden="true">↗</span></a>{% endif %}{% endmacro %}

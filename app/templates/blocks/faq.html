@@ -1,0 +1,1 @@
+<section class="section faq-section" id="{{ block.id }}"><div><span class="micro section-kicker">{{ block.eyebrow }}</span><h2>{{ block.title }}</h2></div><div class="faq-list">{% for item in block['items'] %}<details><summary>{{ item.title }}<span aria-hidden="true">＋</span></summary><p>{{ item.text }}</p></details>{% endfor %}</div></section>
